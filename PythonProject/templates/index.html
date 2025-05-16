@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pneumonia Diagnosis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f4f4f4;
+        }
+        .cover {
+            padding: 50px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cover">
+        <h1>Pneumonia Detection System</h1>
+        <p>Upload an image to check for signs of pneumonia using AI-powered analysis.</p>
+    </div>
+
+    <div class="container">
+        <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <button type="submit">Predict</button>
+        </form>
+        {% if prediction %}
+        <h2>Prediction: {{prediction}}</h2>
+        <img src="{{ image_path }}" alt="Uploaded Image" />
+    {% endif %}
+    </div>
+
+</body>
+</html>
